@@ -9,4 +9,4 @@ A high paced run and gun game
 2. Open Unity hub
 3. In the Projects tab select "Add"
 4. Select the colossian folder
-5. The project should now appear in the list of available unity projects... i hope... i haven't tested this yet
+5. The project *should* now appear in the list of available unity projects
