@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class StartGame : MonoBehaviour
+public class SceneChange : MonoBehaviour
 {
 
     //Set a default scene name that can be overriden in the console if needed
