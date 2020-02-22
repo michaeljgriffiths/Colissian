@@ -7,6 +7,7 @@ public class Background : MonoBehaviour
 
     public GameObject backgroundPlane;
     private Transform backgroundTransform;
+    public float speed;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        backgroundTransform.position = new Vector3(backgroundTransform.position.x - 1 * 2 * Time.deltaTime, backgroundTransform.position.y, 0);
+        backgroundTransform.position = new Vector3(backgroundTransform.position.x - 1 * speed * Time.deltaTime, backgroundTransform.position.y, 0);
         
     }
 }
