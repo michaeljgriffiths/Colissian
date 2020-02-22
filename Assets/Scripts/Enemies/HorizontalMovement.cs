@@ -12,4 +12,9 @@ public class HorizontalMovement : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().AddForce(-transform.right * force);
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

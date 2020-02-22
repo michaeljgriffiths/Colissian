@@ -33,7 +33,7 @@ public class EnemyFactory : MonoBehaviour
     float generateYPosition()
     {
         Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        return generateRandom(1, 10);
+        return generateRandom(2, 7);
     }
 
     float generateRandom(float lower, float upper)
