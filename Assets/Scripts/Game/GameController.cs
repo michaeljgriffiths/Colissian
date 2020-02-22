@@ -23,6 +23,12 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Died()
+    {
+        Debug.Log("Dead");
+        Time.timeScale = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {

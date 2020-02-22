@@ -13,6 +13,15 @@ public class HorizontalMovement : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(-transform.right * force);
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Destroy(other.gameObject);
+        }
+        Destroy(gameObject);
+    }
+
     void OnBecameInvisible()
     {
         Destroy(gameObject);
