@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-	public int forceConst = 10;
+	public int forceConst = 7;
 	public bool grounded = true;
 
 	private new Rigidbody rigidbody;
@@ -13,6 +13,7 @@ public class Jump : MonoBehaviour
 	void Start()
 	{
 		rigidbody = GetComponent<Rigidbody>();
+		rigidbody.freezeRotation = true;
 	}
 
 	// Update is called once per frame
