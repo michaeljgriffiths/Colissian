@@ -17,8 +17,17 @@ public class HorizontalShot : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(transform.right * force);
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    Destroy(this, 0);
-    //}
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+        Destroy(gameObject);
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
