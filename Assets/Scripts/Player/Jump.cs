@@ -20,8 +20,9 @@ public class Jump : MonoBehaviour
 	{
 		if (grounded)
 		{
-			if (Input.GetKeyUp(KeyCode.Space))
+			if (Input.GetAxis("Vertical") > 0)
 			{
+				grounded = false;
 				rigidbody.AddForce(0, forceConst, 0, ForceMode.Impulse);
 			}
 		}
