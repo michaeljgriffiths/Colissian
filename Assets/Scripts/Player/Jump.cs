@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-	public int forceConst = 7;
+	public int force = 10;
 	public bool grounded = true;
 
 	private new Rigidbody rigidbody;
@@ -24,7 +24,7 @@ public class Jump : MonoBehaviour
 			if (Input.GetAxis("Vertical") > 0)
 			{
 				grounded = false;
-				rigidbody.AddForce(0, forceConst, 0, ForceMode.Impulse);
+				rigidbody.AddForce(0, force, 0, ForceMode.Impulse);
 			}
 		}
 	}
