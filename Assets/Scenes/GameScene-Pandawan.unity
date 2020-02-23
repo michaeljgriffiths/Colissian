@@ -198,6 +198,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12258005}
   m_CullTransparentMesh: 0
+--- !u!212 &86637055 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -299530214241122927, guid: e273b40b86f8ea14eab8d3943eb891ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 911072900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &110226575
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +750,6 @@ GameObject:
   m_Component:
   - component: {fileID: 895984650}
   - component: {fileID: 895984649}
-  - component: {fileID: 895984648}
   - component: {fileID: 895984653}
   - component: {fileID: 895984654}
   - component: {fileID: 895984647}
@@ -775,45 +780,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!23 &895984648
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895984646}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f72bb8c078ea7ac4e8cc127322624673, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!33 &895984649
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -892,6 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 895984655}
+  spriteRenderer: {fileID: 86637055}
 --- !u!95 &895984655
 Animator:
   serializedVersion: 3
@@ -986,10 +953,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7225786140943209571, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7225786140943209571, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -5042637142115584304, guid: e273b40b86f8ea14eab8d3943eb891ea,
         type: 3}
       propertyPath: m_Name
-      value: Idle
+      value: Grun-Animator
+      objectReference: {fileID: 0}
+    - target: {fileID: -5042637142115584304, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -342382431687926135, guid: e273b40b86f8ea14eab8d3943eb891ea,
         type: 3}
@@ -999,6 +981,11 @@ PrefabInstance:
     - target: {fileID: -342382431687926135, guid: e273b40b86f8ea14eab8d3943eb891ea,
         type: 3}
       propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -342382431687926135, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_UpdateMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -299530214241122927, guid: e273b40b86f8ea14eab8d3943eb891ea,
@@ -1017,6 +1004,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f72bb8c078ea7ac4e8cc127322624673, type: 2}
+    - target: {fileID: -299530214241122927, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -299530214241122927, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 6437531721940673314, guid: e273b40b86f8ea14eab8d3943eb891ea,
     type: 3}

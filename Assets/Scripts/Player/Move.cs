@@ -8,8 +8,12 @@ public class Move : MonoBehaviour
     private int m_InputX;
 
     public Animator animator;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
+    public void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void Update()
     {
         animator = GetComponentInChildren<Animator>();
@@ -30,15 +34,15 @@ public class Move : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
-            Debug.Log("Trigger run animation");
-            animator.SetTrigger("Run");
+            //animator.SetTrigger("Run");
+            animator.SetBool("Run", true);
         }
-        else
+        if (Input.anyKey == false)
         {
-            Debug.Log("Trigger idle animation");
-            animator.SetTrigger("Idle");
+            //animator.SetTrigger("Idle");
+            animator.SetBool("Run", false);
         }
     }
 
