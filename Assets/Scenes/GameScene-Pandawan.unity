@@ -988,6 +988,11 @@ PrefabInstance:
       propertyPath: m_UpdateMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -342382431687926135, guid: e273b40b86f8ea14eab8d3943eb891ea,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -299530214241122927, guid: e273b40b86f8ea14eab8d3943eb891ea,
         type: 3}
       propertyPath: m_Sprite
@@ -1003,7 +1008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f72bb8c078ea7ac4e8cc127322624673, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: -299530214241122927, guid: e273b40b86f8ea14eab8d3943eb891ea,
         type: 3}
       propertyPath: m_SortingOrder
