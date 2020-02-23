@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HorizontalShot : MonoBehaviour
 {
+    public bool facingRight = true;
     public int force = 40;
 
     private void Start()
@@ -14,7 +15,14 @@ public class HorizontalShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().AddForce(transform.right * force);
+        if (facingRight)
+        {
+            GetComponent<Rigidbody>().AddForce(transform.right * force);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().AddForce(-transform.right * force);
+        }
     }
 
     void OnCollisionEnter(Collision other)
