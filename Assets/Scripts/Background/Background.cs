@@ -5,52 +5,77 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
 
-    public GameObject backgroundPlane;
-    private Transform backgroundTransform;
     public float speed;
     public GameObject gameCameraObject;
     private Camera gameCamera;
     private Transform cameraTransform;
-    private int planeLength;
     public float choke = 0;
+    private float objectWidth;
+
+    public GameObject[] backgroundObjects = new GameObject[2];
+    private Transform[] backgroundObjectTransforms = new Transform[2];
 
     Vector3 screenBounds;
+    Vector3 desiredTransformPosition;
 
     private void Start()
     {
         gameCamera = gameCameraObject.GetComponent<Camera>();
-        backgroundTransform = backgroundPlane.GetComponent<Transform>();
-        cameraTransform = gameCameraObject.GetComponent<Transform>();
+        cameraTransform = gameCamera.GetComponent<Transform>();
         screenBounds = gameCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cameraTransform.position.z));
         Debug.Log(screenBounds.ToString());
 
-        loadChildObjects(backgroundPlane);
+        loadChildObjects(backgroundObjects);
     }
 
-    void loadChildObjects(GameObject obj)
+    void loadChildObjects(GameObject [] backgroundObjects)
     {
-        float objectWidth = obj.GetComponent<MeshRenderer>().bounds.size.x - choke;
-        Debug.Log("Object width is : " + objectWidth.ToString());
-        int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 2 / objectWidth);
-        Debug.Log("Objects needed is " + childsNeeded.ToString());
-
-        GameObject clone = Instantiate(obj) as GameObject;
-        //for (int i = 0; i <= childsNeeded; i++)
+        //assign all the transforms from the game objects to a seperate array so we can work with them directly
+        for (int i = 0; i < backgroundObjects.Length; i++)
         {
-            //GameObject c = Instantiate(clone) as GameObject;
-            //c.transform.SetParent(obj.transform);
-            //c.transform.position = new Vector3(objectWidth * i, obj.transform.position.y, obj.transform.position.z);
-            //c.name = obj.name + i;
+            Debug.Log(backgroundObjects.Length);
+            backgroundObjectTransforms[i] = backgroundObjects[i].GetComponent<Transform>();
+            Debug.Log(backgroundObjectTransforms[i]);
         }
-        //Destroy(clone);
-        //Destroy(obj.GetComponent<MeshRenderer>());
-
-
-        // Update is called once per frame
-        void Update()
-        {
-            backgroundTransform.position = new Vector3(backgroundTransform.position.x - 1 * speed * Time.deltaTime, backgroundTransform.position.y, 0);
-
-        }
+        
     }
-}
+
+    void RepositionObjects(Transform [] backgroundObjectTransforms, GameObject [] backgroundObjects)
+    {
+        for (int i = 0; i < backgroundObjects.Length; i++)
+        {
+            objectWidth = backgroundObjects[i].GetComponent<MeshRenderer>().bounds.size.x - choke;
+
+            if (backgroundObjectTransforms[i].position.x + screenBounds.x + 2 < objectWidth)
+            {
+                Debug.Log("Reposition required for : " + backgroundObjects[i].name);
+                desiredTransformPosition = new Vector3(backgroundObjectTransforms[i].position.x + objectWidth, backgroundObjectTransforms[i].position.y, backgroundObjectTransforms[i].position.z);
+                Instantiate(backgroundObjectTransforms[i], desiredTransformPosition, backgroundObjectTransforms[i].rotation);
+            }
+        }
+
+
+
+
+            
+
+ 
+    }
+
+    void MoveBackgrounds(Transform [] backgroundObjectTransforms)
+    {
+        for (int i = 0; i < backgroundObjectTransforms.Length; i++)
+        backgroundObjectTransforms[i].position = new Vector3(backgroundObjectTransforms[i].position.x - 1 * speed * Time.deltaTime, backgroundObjectTransforms[i].position.y, backgroundObjectTransforms[i].position.z);
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    MoveBackgrounds(backgroundObjectTransforms);
+    //RepositionObjects(backgroundObjectTransforms, backgroundObjects);
+    }
+   }
+
