@@ -11,9 +11,12 @@ public class EnemyFactory : MonoBehaviour
 
     private float timeLeft;
 
+    public Animator animator;
+
     private void Start()
     {
         timeLeft = generateRandom(minimumFrequency, maximumFrequency);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class EnemyFactory : MonoBehaviour
             float yPosition = generateYPosition();
             GameObject instance = Instantiate(mobile, new Vector3(transform.position.x, yPosition, 0), Quaternion.identity) as GameObject;
             instance.AddComponent<HorizontalMovement>();
-
+            instance.GetComponent<Animator>().SetBool("Moving", true);
             timeLeft = generateRandom(minimumFrequency, maximumFrequency);
         }
     }
